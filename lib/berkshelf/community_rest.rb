@@ -67,12 +67,11 @@ module Berkshelf
     # @option options [Float] :retry_interval (0.5)
     #   how often we should pause between retries
     def initialize(uri = V1_API, options = {})
-      options         = options.reverse_merge(retries: 5, retry_interval: 0.5)
       @api_uri        = uri
       @retries        = options[:retries]
       @retry_interval = options[:retry_interval]
 
-      options[:builder] ||= Faraday::Builder.new do |b|
+      options[:builder] ||= Faraday::RackBuilder.new do |b|
         b.response :parse_json
         b.response :gzip
         b.request :retry,
@@ -165,7 +164,7 @@ module Berkshelf
       local = Tempfile.new('community-rest-stream')
       local.binmode
 
-      retryable(tries: retries, on: OpenURI::HTTPError, sleep: retry_interval) do
+      retryable(tries: @retries, on: OpenURI::HTTPError, sleep: retry_interval) do
         open(target, 'rb', open_uri_options) do |remote|
           local.write(remote.read)
         end
