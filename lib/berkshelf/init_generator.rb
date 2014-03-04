@@ -156,7 +156,7 @@ module Berkshelf
 
       # Check for supporting gems for provided options
       #
-      # @return [Boolean]
+      # @return [Buff::Boolean]
       def check_option_support
         assert_option_supported(:foodcritic) &&
         assert_option_supported(:scmversion, 'thor-scmversion') &&
@@ -165,7 +165,7 @@ module Berkshelf
 
       # Warn if the supporting gem for an option is not installed
       #
-      # @return [Boolean]
+      # @return [Buff::Boolean]
       def assert_option_supported(option, gem_name = option.to_s)
         if options[option]
           begin
@@ -181,7 +181,7 @@ module Berkshelf
 
       # Warn if the supporting gem for a default is not installed
       #
-      # @return [Boolean]
+      # @return [Buff::Boolean]
       def assert_default_supported(option, gem_name = option.to_s)
         unless options[option]
           begin

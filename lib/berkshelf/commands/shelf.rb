@@ -94,7 +94,7 @@ module Berkshelf
       #
       # @param [Berkshelf::CachedCookbook] cookbook
       #   the cookbook to uninstall
-      # @param [Boolean] force
+      # @param [Buff::Boolean] force
       #   if false, the user will need to confirm before uninstalling
       #   if contingencies exist
       def uninstall_cookbook(cookbook, force = false)

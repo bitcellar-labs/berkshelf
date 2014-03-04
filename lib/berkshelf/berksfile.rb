@@ -256,7 +256,7 @@ module Berkshelf
     # @param [#to_s] dependency
     #   the dependency to check presence of
     #
-    # @return [Boolean]
+    # @return [Buff::Boolean]
     def has_dependency?(dependency)
       @dependencies.has_key?(dependency.to_s)
     end
@@ -465,16 +465,16 @@ module Berkshelf
 
     # Upload the cookbooks installed by this Berksfile
     #
-    # @option options [Boolean] :force (false)
+    # @option options [Buff::Boolean] :force (false)
     #   Upload the Cookbook even if the version already exists and is frozen on the
     #   target Chef Server
-    # @option options [Boolean] :freeze (true)
+    # @option options [Buff::Boolean] :freeze (true)
     #   Freeze the uploaded Cookbook on the Chef Server so that it cannot be overwritten
     # @option options [String, Array] :cookbooks
     #   Names of the cookbooks to retrieve dependencies for
     # @option options [Hash] :ssl_verify (true)
     #   Disable/Enable SSL verification during uploads
-    # @option options [Boolean] :halt_on_frozen (false)
+    # @option options [Buff::Boolean] :halt_on_frozen (false)
     #   Raise a FrozenCookbook error if one of the cookbooks being uploaded is already located
     #   on the remote Chef Server and frozen.
     # @option options [String] :server_url

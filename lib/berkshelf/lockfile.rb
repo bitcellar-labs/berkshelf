@@ -69,7 +69,7 @@ module Berkshelf
 
     # Determine if this lockfile actually exists on disk.
     #
-    # @return [Boolean]
+    # @return [Buff::Boolean]
     #   true if this lockfile exists on the disk, false otherwise
     def present?
       File.exists?(filepath) && !File.read(filepath).strip.empty?
@@ -86,7 +86,7 @@ module Berkshelf
     # defined in the lockfile that are no longer present in the Berksfile); this
     # edge case is handed by the installer.
     #
-    # @return [Boolean]
+    # @return [Buff::Boolean]
     #   true if this lockfile is trusted, false otherwise
     def trusted?
       berksfile.dependencies.all? do |dependency|
@@ -156,7 +156,7 @@ module Berkshelf
     # @param [String, Berkshelf::Dependency] dependency
     #   the cookbook dependency/name to determine existence of
     #
-    # @return [Boolean]
+    # @return [Buff::Boolean]
     #   true if the dependency exists, false otherwise
     def dependency?(dependency)
       !find(dependency).nil?

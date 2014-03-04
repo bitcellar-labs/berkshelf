@@ -1,7 +1,7 @@
 class Pathname
   # Returns true or false if the path contains a "metadata.json" or a "metadata.rb" file.
   #
-  # @return [Boolean]
+  # @return [Buff::Boolean]
   def cookbook?
     join("metadata.json").exist? || join("metadata.rb").exist?
   end

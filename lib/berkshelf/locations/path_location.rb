@@ -11,7 +11,7 @@ module Berkshelf
     #
     # @option options [#to_s] :path
     #   a filepath to the cookbook on your local disk
-    # @option options [Boolean] :metadata
+    # @option options [Buff::Boolean] :metadata
     #   true if this is a metadata source
     def initialize(dependency, options = {})
       super
@@ -26,7 +26,7 @@ module Berkshelf
     # Returns true if the location is a metadata location. By default, no
     # locations are the metadata location.
     #
-    # @return [Boolean]
+    # @return [Buff::Boolean]
     def metadata?
       !!@metadata
     end
@@ -60,7 +60,7 @@ module Berkshelf
 
     # Valid if the path exists and is readable
     #
-    # @return [Boolean]
+    # @return [Buff::Boolean]
     def valid?
       File.exist?(path) && File.readable?(path)
     end

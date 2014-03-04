@@ -96,7 +96,7 @@ module Berkshelf
       #
       # @param [String] uri
       #
-      # @return [Boolean]
+      # @return [Buff::Boolean]
       def validate_uri(uri)
         unless uri.is_a?(String)
           return false

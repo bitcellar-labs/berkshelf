@@ -139,7 +139,7 @@ module Berkshelf
 
     # Return true if this is a metadata location.
     #
-    # @return [Boolean]
+    # @return [Buff::Boolean]
     def metadata?
       !!@metadata
     end
@@ -203,14 +203,14 @@ module Berkshelf
     # Returns true if the dependency has already been downloaded. A dependency is downloaded when a
     # cached cookbook is present.
     #
-    # @return [Boolean]
+    # @return [Buff::Boolean]
     def downloaded?
       !cached_cookbook.nil?
     end
 
     # Returns true if this dependency has the given group.
     #
-    # @return [Boolean]
+    # @return [Buff::Boolean]
     def has_group?(group)
       groups.include?(group.to_sym)
     end
@@ -233,14 +233,14 @@ module Berkshelf
 
     # Determines if this dependency has a location and is it a {PathLocation}
     #
-    # @return [Boolean]
+    # @return [Buff::Boolean]
     def path_location?
       location.nil? ? false : location.is_a?(PathLocation)
     end
 
     # Determines if this dependency has a location and if it is an SCM location
     #
-    # @return [Boolean]
+    # @return [Buff::Boolean]
     def scm_location?
       if location.nil?
         return false

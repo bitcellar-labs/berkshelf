@@ -5,7 +5,7 @@ class File
     # @param [#to_s] path
     #   path of directory to reflect on
     #
-    # @return [Boolean]
+    # @return [Buff::Boolean]
     def cookbook?(path)
       File.exists?(File.join(path, "metadata.json")) || File.exists?(File.join(path, "metadata.rb"))
     end

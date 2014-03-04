@@ -108,7 +108,7 @@ module Berkshelf
       #
       # @todo Change MismatchedCookbookName to raise instead of warn
       #
-      # @return [Boolean]
+      # @return [Buff::Boolean]
       def validate_cached(cached_cookbook)
         unless dependency.version_constraint.satisfies?(cached_cookbook.version)
           raise CookbookValidationFailure.new(dependency, cached_cookbook)
@@ -123,7 +123,7 @@ module Berkshelf
 
       # Determines if the location is well formed and points to an accessible location
       #
-      # @return [Boolean]
+      # @return [Buff::Boolean]
       def valid?
         true
       end
